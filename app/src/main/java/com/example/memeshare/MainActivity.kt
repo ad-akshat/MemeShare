@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             url,
             null,
             Response.Listener { response ->
-                val currentImageUrl = response.getString("url")
+                 currentImageUrl = response.getString("url")
                 Log.d("MemeImage", url)
                 Glide.with(this).load(currentImageUrl).into(memeImageView)
             },
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     fun shareMeme(view: View) {
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_TEXT,"Hey check out this meme $currentImageUrl")
+        intent.putExtra(Intent.EXTRA_TEXT,"Hey check out this cool meme $currentImageUrl")
         val chooser = Intent.createChooser(intent,"Share this meme using...")
         startActivity(chooser)
     }
